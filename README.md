@@ -1,5 +1,6 @@
 # Online-Kochbuch_V2
-Eine einfache grundlegende Website über Rezepte
+Eine einfache grundlegende Website über Rezepte.
+
 Für diese Webapp ist es eine MySQL Datenbank lokal installiert zu haben. 
 Für die Entwicklung der Webapp wurde VS Code verwendet. 
 Wichtige Vorkehrungen bevor man das Programm startet:
