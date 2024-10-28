@@ -9,6 +9,7 @@ Für dieses Programm müssen in die .env Datei folgende Variablen:
 DB_PASS = 'dein Passwort für den Zugang zur Datenbank'
 
 EMAIL_HOST = 'die Email Adresse für den Account von welchem die Emails gesendet werden für die Token bzw. um das Passwort für den jeweiligen Benutzer zurückzusetzen' -> also die Email Adresse von der 'Website' als Host.
+
 EMAIL_PASS = ' Das Passwort für den Zugang zu der Email Adresse von der 'Website' als Host.
 
 Vor den Start des Programms:
