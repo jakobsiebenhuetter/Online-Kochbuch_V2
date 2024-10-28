@@ -1,7 +1,9 @@
 # Online-Kochbuch_V2
 Eine einfache grundlegende Website über Rezepte.
 
-Für diese Webapp ist es eine MySQL Datenbank lokal installiert zu haben. 
+Diese Webapp wurde mit Vanilla JS im Frontend und mit Node.js als Backend programmiert. Es wurde eine MySQL Datenbank verwendet, für die Speicherung der Daten, daher 
+ist es wichtig eine MySQL Datenbank lokal installiert zu haben, damit das Programm funktionieren kann.
+
 Für die Entwicklung der Webapp wurde VS Code verwendet. 
 Wichtige Vorkehrungen bevor man das Programm startet:
 Wenn man den Source Code herunterlädt ist es wichtig in den Ordner Online-Kochbuch_V2 eine env Datei zu erstellen bevor man die Seite aufruft. Dort müssen die Environment Variablen für das Programm erstellt werden, welche sensible Daten beinhalten.
@@ -19,3 +21,12 @@ Vor dem Start des Programms:
 Im Verzeichnis, welches das Online-Kochbuch_V2 als Endpunkt definiert ist, muss im Terminal bzw. CMD (nicht PoweShell !!!) der Befehl 'npm install' durchgeführt werden.
 Durch diesen Befehl werden alle Dependencies heruntergeladen.
 Danach kann man die Website unter 'http://localhost:3000/' aufrufen und für seine Zwecke verwenden.
+
+Wichtige information:
+
+Alle Tabellen, welche für diese Website benötigt werden, werden beim start des Programms automatisch erstellt, falls diese in MySQL nicht vorhanden sein sollten.
+Der erste Benutzer, der sich registriert wird automatisch zum Admin der Website. Danach kann man nur manuell in der Datenbank zusätzliche Admins deklarieren.
+Der Admin kann Rezepte erstellen, löschen und bearbeiten. Er kann auch alle Kommentare löschen.
+
+
+
