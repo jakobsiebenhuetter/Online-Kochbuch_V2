@@ -1,0 +1,199 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Agbalumo", sans-serif;
+  text-align: center;
+}
+
+main {
+  cursor: url("/cutlery.png"), auto;
+}
+
+header {
+  padding-top: 2%;
+  margin-bottom: 1%;
+  box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.5);
+
+  text-align: center;
+
+  background-color: rgba(71, 68, 68, 0.11);
+}
+
+header a {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  text-decoration: none;
+  color: rgba(15, 15, 15, 0.699);
+  font-weight: 700;
+  font-size: large;
+  transition: transform 0.2s;
+}
+
+.flexi {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow {
+  position: relative;
+  width: 40px;
+
+  opacity: 0;
+  margin: 0;
+}
+
+/* #arrow:hover {
+  opacity: 1;
+} */
+.flexi:hover .arrow {
+  opacity: 1;
+}
+
+.flexi:hover a {
+  transform: translateY(-10px);
+}
+
+/* a:hover{
+  transform: translateY(-10px)
+} */
+
+header div {
+  display: flex;
+  justify-content: space-around;
+  gap: 5%;
+}
+
+h1 {
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li:hover {
+  background-color: rgb(127, 247, 133);
+}
+
+#zutaten-bearbeiten-löschen div p:hover {
+  background-color: aliceblue;
+}
+footer {
+  background-color: rgb(182, 231, 102);
+}
+
+form {
+  margin: 0 auto;
+  margin-bottom: 5%;
+  padding: 0;
+  width: 50%;
+  background-color: burlywood;
+  padding: 3%;
+  border-radius: 10px;
+  text-align: center;
+}
+
+label {
+  display: block;
+}
+
+input {
+  margin: 5px;
+
+  width: 300px;
+  height: 2rem;
+  border-radius: 10px;
+  border: solid 2px transparent;
+}
+textarea {
+  width: 60%;
+  border-radius: 10px;
+  border: solid 2px transparent;
+  resize: vertical;
+}
+
+button {
+  display: block;
+  border-radius: 15px;
+  margin: 3% auto;
+  padding: 8px;
+  border: solid 2px transparent;
+  box-shadow: 0 2px #999;
+  transition: transform 0.1s 0;
+}
+button:hover {
+  background-color: rgb(209, 175, 134);
+}
+
+button:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px #999;
+}
+label {
+  padding: 20px;
+}
+a img {
+  width: 20rem;
+}
+
+img {
+  border-radius: 20px;
+}
+.main-content {
+  text-align: center;
+  width: 80%;
+  display: grid;
+  grid-template-columns: 20rem 20rem 20rem;
+  justify-content: center;
+  gap: 5%;
+  margin: 2% auto;
+}
+
+#zweites-fenster-admin {
+  position: absolute;
+  /* keine margin, funktioniert hier nicht */
+  left: 0;
+  top: -110%;
+  width: 100%;
+  background-color: bisque;
+  transition: transform 0.8s;
+  text-align: center;
+  opacity: 0;
+}
+
+#close-icon {
+  text-align: end;
+}
+#close-icon img {
+  width: 30px;
+  padding: 2%;
+}
+
+/* error */
+.error {
+  background-color: red;
+  border-radius: 10px;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+}
+
+#login-form {
+  margin-top: 10%;
+  width: 300px;
+}
+
+#registration-form {
+  margin-top: 5%;
+  width: 300px;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('includes/head') %>
+</head>
+<body>
+   
+
+
+    <form id="registration-form" action="/registrierung-save-data" method="POST">
+        <p>Registrierung</p>
+
+        
+            <p class="error"><%= message.nachricht %></p>
+       
+
+        <label for="zutaten">Benutzername</label>
+        <input type="text" id="benutzer" name="benutzer" required value="<%= message.benutzer %>">
+
+        <label for="email">Email Adresse</label>
+        <input type="email" id="email" name="email" required value="<%= message.email %>">
+
+        <label for="confirm-email">Email Bestätigung</label>
+        <input type="email" id="confirm-email" name="confirm-email" required value="<%= message.confirm_email %>">
+
+        <label for="password">Passwort</label>
+        <input type="password" id="password" name="password" required>
+
+  
+
+        <button type="submit">Registrieren</button>
+
+        <a href="/">Zurück zur Hauptseite</a>
+
+        
+    </form>
+</body>
+</html>

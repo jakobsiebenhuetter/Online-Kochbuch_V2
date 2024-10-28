@@ -1,0 +1,49 @@
+textarea {
+  width: 100%;
+  border: 1px solid gray;
+}
+
+textarea:focus {
+  border: 1px solid gray;
+  outline: gray;
+}
+
+.buttons-comments {
+  display: flex;
+  width: 40%;
+  margin-left: 63%;
+  margin-bottom: 5%;
+  gap: 5%;
+  padding: 0;
+}
+
+form {
+  background-color: transparent;
+}
+
+section {
+  text-align: left;
+  width: 700px;
+  margin: auto;
+}
+
+.user {
+  color: gray;
+}
+
+li {
+  width: 500px;
+  margin: auto;
+  border-radius: 10px;
+}
+
+ul li:hover {
+  background-color: transparent;
+}
+
+input {
+  border: solid, 2px, burlywood;
+}
+input:hover {
+  background-color: burlywood;
+}

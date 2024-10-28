@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('includes/head') %>
+</head>
+<body>
+    
+
+
+    <h1>Neues Passwort vergeben</h1>
+    <p>Vergebe ein neues Passwort für deinen Benutzeraccount.</p>
+
+    <form id="login-form" action="/reset/<%= token %>" method="POST">
+        
+        <% if(message) { %>
+        <p class="error"><%= message.message %></p>
+        <% } %>
+        
+        <label for="passwort">Neues Passwort</label>
+        <input type="password" id="passwort" name="passwort" required>
+
+
+        <label for="Passwort-wiederholen">Passwort wiederholen</label>
+        <input type="password" id="Passwort-wiederholen" name="Passwort-wiederholen" required>
+
+
+        <button type="submit">Neues Passwort speichern</button>
+
+    </form>
+</body>
+</html>

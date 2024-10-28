@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <%- include('includes/head') %>
+    
+</head>
+<body>
+   
+    <%- include('includes/header') %>
+      
+   
+      <main>
+<div>
+
+
+ <section id="haupt-fenster">
+
+
+     <p>Hallo Admin, gib ein Rezept ein</p>
+     <form action="/neues-rezept" method="POST" enctype="multipart/form-data">
+         <label for="rezept-name">Name des Rezepts</label>
+         <input name="rezeptname" type="text" id="rezept-name" required>
+         
+         <label for="rezept-beschreibung">Rezeptbeschreibung</label>
+         <textarea name="rezeptbeschreibung" id="rezept-beschreibung" required></textarea>
+         
+         <label for="dauer">Dauer in Minuten</label>
+         <input type="number" name="dauer" id="dauer">
+         <button type="submit">Speichern</button>
+
+         <p>Bild hochladen</p>
+     
+             <p>Dateien hier ablegen oder klicken, um eine Datei auszuwählen</p>
+             <input type="file" id="image-speise" name="image-speise" accept=".jpg,.png">
+          
+
+         
+        </form>
+
+        <br>
+        <% if(neuesRezept.length !== 0)  { %>
+        <form action="/zutaten-zum-rezept/<%= neuesRezept[0].id_Rezept %>" method="POST">
+            <p>Hier können Zutaten vom letzten gespeicherten Rezept hinzugefügt werden</p>
+            
+            <p>Füge zu <%= neuesRezept[0].Name %> Zutaten hinzu</p>
+           
+            <label for="zutaten">Zutaten</label>
+            <input type="text" id="zutaten" name="zutat" required>
+          
+
+            <button  type="submit">Speichern</button>
+
+            
+        </form>
+        <% } else { %>
+            <p>Keine Rezepte vorhanden - erstelle eins</p>
+            <% } %>
+    </section>
+
+    
+
+</div> 
+
+
+    
+    </main>
+
+</body>
+</html>

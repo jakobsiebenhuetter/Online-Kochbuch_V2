@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('includes/head') %>
+
+    <link rel="stylesheet" href="/style-detailiertes.css" />
+    <script src="/detailiertes.js" defer></script>
+  </head>
+  <body>
+    <%- include('includes/header') %>
+
+    <main>
+      Detailierte infos übers Rezept
+
+      <ul id="rezept-container">
+        <li
+          id="titel"
+          class="editierbar"
+          data-id="<%= onlyRezept[0].id_Rezept %>"
+        >
+          <%= onlyRezept[0].Name %>
+        </li>
+        <img
+          src="/<%= onlyRezept[0].Pfad_Bild %>"
+          alt="Bild-des-Gerichts"
+          style="width: 700px"
+        />
+        <li
+          id="beschreibung"
+          class="editierbar"
+          data-id="<%= onlyRezept[0].id_Rezept %>"
+        >
+          <%= onlyRezept[0].Beschreibung %>
+        </li>
+
+        <% if(zutaten.length > 0) { %>
+        <ul class="zutat">
+          <h3>Folgende Zutaten sind vorhanden:</h3>
+
+          <% for(const zutat of zutaten) {%>
+
+          <li
+            class="editierbar editierbare-zutaten"
+            data-id="<%= zutat.id_zutaten %>"
+          >
+            <%= zutat.Zutaten %>
+          </li>
+          <% }%>
+        </ul>
+ 
+        <% } else { %>
+        <h3>Keine Zutaten vorhanden</h3>
+        <% } %> <% if(isAdmin) { %>
+        <button id="rezept-löschen" data-id="<%= onlyRezept[0].id_Rezept %>">
+          Rezept löschen
+        </button>
+        <button id="rezept-bearbeiten" data-id="<%= onlyRezept[0].id_Rezept %>">
+          Rezept bearbeiten
+        </button>
+        <% } %>
+
+        <h3>Kommentare</h3>
+
+        <% if(!isAuthenticated && !isAdmin) { %>
+        <a href="/login">Kommentar schreiben</a>
+
+        <% } %> <% if(isAdmin || isAuthenticated) { %>
+
+        <div class="comments-container">
+          <form action="/post_comment" method="post">
+            <textarea
+              id=""
+              placeholder="Verfasse ein Kommentar zu diesem Rezept"
+              rows="6"
+              name="comment"
+            ></textarea>
+            <div class="buttons-comments">
+              <input
+                type="hidden"
+                name="idRezept"
+                value="<%= onlyRezept[0].id_Rezept %>"
+              />
+              <button type="reset">Abbrechen</button>
+              <button type="submit" name="submit">Senden</button>
+            </div>
+          </form>
+        </div>
+
+        <% } %> <% if(comment) { %> <% for(const c of comment) {%>
+
+        <section>
+          <hr />
+
+          <time style="margin-left: 40%" datetime="<%= c.Datum %>"
+            ><%= c.Datum.toISOString().split('T')[0] %></time
+          >
+          <div>
+            <p class="user"><%= c.benutzer %></p>
+            <p><%= c.Kommentar %></p>
+          </div>
+          <% if (isAdmin || isAuthenticated) { %>
+          <div class="comments-container">
+            <form action="/post_answer" method="post">
+              <textarea
+                id=""
+                placeholder="Sende eine Antwort"
+                rows="6"
+                name="answer"
+              ></textarea>
+              <div class="buttons-comments">
+                <input
+                  type="hidden"
+                  name="idRezept"
+                  value="<%= onlyRezept[0].id_Rezept %>"
+                />
+                <input
+                  type="hidden"
+                  name="parentId"
+                  value="<%= c.id_Kommentar %>"
+                />
+                <button type="reset">Abbrechen</button>
+                <button type="submit" name="submit">Senden</button>
+                <% } %>
+              </div>
+            </form>
+          </div>
+
+          <%-renderSubComments(c.subKommentar, onlyRezept[0].id_Rezept) %>
+        </section>
+
+        <% } } %> <% if(isAdmin) {%>
+        <form action="/delete-comment-admin/<%= idRezept %>" method="post">
+          <button>Kommentare löschen</button>
+        </form>
+
+        <%} %>
+
+        <!-- Textarea und Button hinzufügen mit Funktionalitäten -->
+        <% function renderSubComments(subKommentare, onlyRezept_id_Rezept) { %>
+        <% if (subKommentare && subKommentare.length > 0) { %> <%
+        subKommentare.forEach(sub => { %>
+        <section class="comments-container" style="margin-left: 100px">
+          <hr />
+          <time datetime="<%= sub.Datum %>"><%= sub.Datum.toISOString().split('T')[0] %></time>
+          <div>
+            <p class="user"><%= sub.benutzer %> hat geantwortet</p>
+            <p><%= sub.Kommentar %></p>
+          </div>
+
+          <% if (isAdmin || isAuthenticated) { %>
+          <div class="comments-container">
+            <form action="/post_answer" method="post">
+              <textarea placeholder="Sende eine Antwort" rows="3" name="answer"></textarea>
+              <input type="hidden" name="idRezept" value="<%= onlyRezept_id_Rezept %>"/>
+              <input type="hidden" name="parentId" value="<%= sub.id_Kommentar %>"/>
+              <button type="reset">Abbrechen</button>
+              <button type="submit" name="submit">Senden</button>
+            </form>
+          </div>
+          <% } %>
+        </section>
+
+        <!-- Unterkommentare rekursiv anzeigen -->
+        <div class="sub-comments">
+          <%- renderSubComments(sub.subKommentar, onlyRezept_id_Rezept) %>
+        </div>
+
+        <% }) %> <% } %> <% } %>
+      </ul>
+    </main>
+  </body>
+</html>

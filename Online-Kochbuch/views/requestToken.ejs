@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('includes/head') %>
+</head>
+<body>
+    
+
+    <p>Neues Passwort vergeben</p>
+    <p>Passwort vergessen? Kein Problem! Wir schicken dir gerne einen Link per E-Mail zu, über den du ein neues Passwort vergeben kannst.</p>
+    
+    <form id="login-form" action='/no-password' method="POST">
+        <h3>E-Mail-Adresse</h3>
+        <p>Gebe deine E-Mail-Adresse an und du erhälst umgehend eine E-Mail mit weiteren Informationen, wie du ein neues Passwort setzen und dich wieder erfolgreich bei das kleine Kochbuch einloggen kannst.</p>
+
+
+        <input type="email" id="email" name="email" required>
+
+
+
+        <button type="submit">Email anfordern</button>
+
+    </form>
+</body>
+</html>
