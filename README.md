@@ -13,6 +13,7 @@ EMAIL_HOST = 'die Email Adresse für den Account von welchem die Emails gesendet
 EMAIL_PASS = ' Das Passwort für den Zugang zu der Email Adresse von der 'Website' als Host.
 
 Vor den Start des Programms:
+
 Im Verzeichnis, welches das Online-Kochbuch_V2 als Endpunkt definiert ist, muss im Terminal bzw. CMD (nicht PoweShell !!!) der Befehl 'npm install' durchgeführt werden.
 Durch diesen Befehl werden alle Dependencies heruntergeladen.
 Danach kann man die Website unter 'http://localhost:3000/' aufrufen und für seine Zwecke verwenden.
