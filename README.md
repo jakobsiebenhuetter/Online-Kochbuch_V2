@@ -1,8 +1,8 @@
 # Online-Kochbuch_V2
 Eine einfache grundlegende Website über Rezepte.
 
-Diese Webapp wurde mit Vanilla JS im Frontend und mit Node.js als Backend programmiert. Es wurde eine MySQL Datenbank verwendet, für die Speicherung der Daten, daher 
-ist es wichtig eine MySQL Datenbank lokal installiert zu haben, damit das Programm funktionieren kann.
+Diese Webapp wurde mit Vanilla JS im Frontend und mit Node.js als Backend programmiert. Für die Speicherung der Daten wurde eine MySQL Datenbank verwendet, daher 
+ist es wichtig MySQL lokal installiert zu haben, damit das Programm funktionieren kann.
 
 Für die Entwicklung der Webapp wurde VS Code verwendet. 
 Wichtige Vorkehrungen bevor man das Programm startet:
